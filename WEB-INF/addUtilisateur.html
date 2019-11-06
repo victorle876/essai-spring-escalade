@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add Student</title>
+</head>
+<body>
+	<h1>Add Student</h1>
+	<form action="#" th:action="@{/saveStudent}" th:object="${student}"
+		method="post">
+		<ul>
+			<li th:errors="*{id}" />
+			<li th:errors="*{first_name}" />
+			<li th:errors="*{family_name}" />
+			<li th:errors="*{Date_Naissance}" />
+			<li th:errors="*{gender}" />
+			<li th:errors="*{Mail}" />
+			<li th:errors="*{Password}" />
+		</ul>
+		<table border="1">
+			<tr>
+				<td><label th:text="#{msg.id}" /></td>
+				<td><input type="number" th:field="*{id}" /></td>
+			</tr>
+			<tr>
+				<td><label th:text="#{msg.name}" /></td>
+				<td><input type="text" th:field="*{first_name}" /></td>
+			</tr>
+			
+			<tr>
+				<td><label th:text="#{msg.name}" /></td>
+				<td><input type="text" th:field="*{family_name}" /></td>
+			</tr>
+			<tr>
+				<td><label th:text="#{msg.gender}" /></td>
+				<td><select th:field="*{gender}">
+						<option th:value="'M'" th:text="Male"></option>
+						<option th:value="'F'" th:text="Female"></option>
+				</select></td>
+			</tr>
+			
+						<tr>
+				<td><label th:text="#{msg.name}" /></td>
+				<td><input type="text" th:field="*{Date_Naissance}" /></td>
+			</tr>
+			
+									<tr>
+				<td><label th:text="#{msg.name}" /></td>
+				<td><input type="text" th:field="*{Mail}" /></td>
+			</tr>
+			
+												<tr>
+				<td><label th:text="#{msg.name}" /></td>
+				<td><input type="text" th:field="*{Password}" /></td>
+			</tr>
+
+			<tr>
+				<td><input type="submit" value="Submit" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
