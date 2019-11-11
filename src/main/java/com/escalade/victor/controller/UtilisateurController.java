@@ -1,5 +1,6 @@
 package com.escalade.victor.controller;
 
+import com.escalade.victor.model;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
