@@ -1,4 +1,4 @@
-package com.esacalade.victor.model;
+package com.escalade.victor.model;
 
 public class Utilisateur {
 
@@ -7,6 +7,8 @@ public class Utilisateur {
     @NotNull(message = "Utilisateur ID is required.")
     @Min(value = 1000, message = "Utilisateur ID must be at least 4 digits.")
     private Integer id;
+
+    //
 
     @NotNull(message = "Le prénom de l'utilisateur is requis.")
     private String first_name;
