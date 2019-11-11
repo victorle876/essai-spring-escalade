@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<tbody>
+
+    <td th:text="${utilisateur.id}" />
+    <td th:text="${utilisateur.first_name}" />
+    <td th:text="${utilisateur.family_name}" />
+    <td th:switch="${utilisateur.gender}"><span th:case="'M'"
+                                                th:text="Male" /> <span th:case="'F'" th:text="Female" /></td>
+    <td th:text="${utilisateur.date_naissance}" />
+    <td th:text="${utilisateur.mail}" />
+    <td th:text="${utilisateur.password}" />
+
+</tbody>
+
+</body>
+</html>
