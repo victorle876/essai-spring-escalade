@@ -29,6 +29,7 @@ public class UtilisateurController {
         if (!errors.hasErrors()) {
             // get mock objects
             //List<Utilisateur> utilisateurs = UtilisateurUtils.buildStudents();
+            List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>;
             utilisateur.setFirst_Name(first_name);
             utilisateur.setFirst_Name(family_name);
             utilisateur.setDate_Naissance(date_naissance);
@@ -36,8 +37,8 @@ public class UtilisateurController {
             utilisateur.setMail(mail);
             utilisateur.setPassword(password);
             // add current utilisateur
-            //utilisateurs.add(utilisateur);
-            model.addAttribute("utilisateur", utilisateur);
+            utilisateurs.add(utilisateur);
+            model.addAttribute("utilisateurs", utilisateur);
         }
         return ((errors.hasErrors()) ? "addUtilisateur.html" : "listUtilisateur.html");
     }
@@ -51,15 +52,15 @@ public class UtilisateurController {
     @RequestMapping(value = "/listUtilisateurs", method = RequestMethod.GET)
     public String listUtilisateurs(Model model) {
 
-        model.addAttribute("utilisateur", UtilisateurUtils.buildUtilisateurs());
+        model.addAttribute("utilisateurs", utilisateur);
 
         return "listUtilisateur.html";
     }
 
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
-    public String listUtilisateur(Model model) {
+    public String detailUtilisateur(Model model) {
 
-        model.addAttribute("utilisateur", UtilisateurUtils.buildUtilisateurs());
+        model.addAttribute("utilisateur", utilisateur);
 
         return "detail.html";
     }
