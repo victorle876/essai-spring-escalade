@@ -1,30 +1,27 @@
 package com.escalade.victor.model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static java.util.Arrays.*;
+
 public class Utilisateur {
-
-    private static final long serialVersionUID = -8582553475226281591L;
-
-    @NotNull(message = "Utilisateur ID is required.")
-    @Min(value = 1000, message = "Utilisateur ID must be at least 4 digits.")
     private Integer id;
-
-    //
-
-    @NotNull(message = "Le prénom de l'utilisateur is requis.")
-    private String first_name;
-
-    @NotNull(message = " Le nom de famille est requis.")
-    private String family_name;
-
-    @NotNull(message = "Le sexe est requis.")
-    private Character gender;
-
-    private String date_naissance;
-
+    private String nom;
+    private String prenom;
+    private Integer age;
+    private String sexe;
     private String mail;
 
-    private String password;
-
+    public Utilisateur(Integer id, String nom, String prenom, Integer age, String sexe, String mail) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.age = age;
+        this.sexe = sexe;
+        this.mail = mail;
+    }
 
     public Integer getId() {
         return id;
@@ -34,45 +31,36 @@ public class Utilisateur {
         this.id = id;
     }
 
-    public String getFirst_Name() {
-        return first_name;
+    public String getNom() {
+        return nom;
     }
 
-    public void setFirst_Name(String name) {
-        this.first_name = first_name;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public String getFamily_Name() {
-        return family_name;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setFamily_Name(String name) {
-        this.family_name = family_name;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
-    public Character getGender() {
-        return gender;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setGender(Character gender) {
-        this.gender = gender;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
-
-    public String getDate_Naissance() {
-        return Date_Naissance;
+    public String getSexe() {
+        return sexe;
     }
 
-    public void setDate_Naissance(String Date_Naissance) {
-        this.date_naissance = date_naissance;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
     }
 
     public String getMail() {
@@ -84,4 +72,16 @@ public class Utilisateur {
     }
 
 
+
+    @Override
+    public String toString() {
+        return "Utilisateur{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", age=" + age +
+                ", sexe='" + sexe + '\'' +
+                ", mail='" + mail + '\'' +
+                '}';
+    }
 }
