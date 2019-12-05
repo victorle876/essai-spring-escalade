@@ -38,6 +38,7 @@ public class UtilisateurController {
        model.addAttribute("utilisateur", utilisateur2);
         return "add.html";
     }
+    //
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String sauver (@Valid @ModelAttribute Utilisateur utilisateur2, Model model) {
