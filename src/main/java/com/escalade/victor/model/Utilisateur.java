@@ -14,6 +14,10 @@ public class Utilisateur {
     private String sexe;
     private String mail;
 
+    public Utilisateur(){
+
+    }
+
     public Utilisateur(Integer id, String nom, String prenom, Integer age, String sexe, String mail) {
         this.id = id;
         this.nom = nom;
