@@ -66,7 +66,7 @@ public class UtilisateurController {
 
     }
 
-/*   @RequestMapping(value = "/edition", method = RequestMethod.GET)
+   @RequestMapping(value = "/edition", method = RequestMethod.GET)
     public String edition(@RequestParam(value = "id") Integer id, Model model) {
         // model.addAttribute("id", id);
 
@@ -80,5 +80,5 @@ public class UtilisateurController {
         }
         return null;
 
-    }*/
+    }
 }
