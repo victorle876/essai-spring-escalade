@@ -72,6 +72,22 @@ public class UtilisateurController {
 
         for (Utilisateur utilisateur : this.utilisateurs) {
             if (utilisateur.getId().equals(id)) {
+                // utilisateurs.set(id-1, utilisateur);
+                model.addAttribute("utilisateur", utilisateur);
+                return "edition.html";
+
+            }
+        }
+        return null;
+
+    }
+
+    @RequestMapping(value = "/edition", method = RequestMethod.POST)
+    public String edition2 (@RequestParam(value = "id") Integer id,  Model model) {
+        // model.addAttribute("id", id);
+
+        for (Utilisateur utilisateur : this.utilisateurs) {
+            if (utilisateur.getId().equals(id)) {
                 utilisateurs.set(id-1, utilisateur);
                 model.addAttribute("utilisateur", utilisateur);
                 return "edition.html";
