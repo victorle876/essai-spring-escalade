@@ -113,7 +113,7 @@ public class UtilisateurController {*/
         @Autowired
         UtilisateurRepository utilisateurRepository;
 
-        @GetMapping("/notes")
+        @GetMapping("/utilisateurs")
         public List<Utilisateur> getAllUtilisateur() {
             return utilisateurRepository.findAll();
         }
@@ -123,13 +123,13 @@ public class UtilisateurController {*/
             return utilisateurRepository.save(utilisateur);
         }
 
-        @GetMapping("/notes/{id}")
+        @GetMapping("/utilisateurs/{id}")
         public Utilisateur getNoteById(@PathVariable(value = "id") Long utilisateurId) {
             return utilisateurRepository.findById(utilisateurId)
                     .orElseThrow(() -> new ResourceNotFoundException("Utilisateur", "id", utilisateurId));
         }
 
-        @PutMapping("/notes/{id}")
+        @PutMapping("/utilisateurs/{id}")
         public Utilisateur updateUtilisateur(@PathVariable(value = "id") Long utilisateurId,
                                @Valid @RequestBody Utilisateur utilisateurDetails) {
 
@@ -149,10 +149,10 @@ public class UtilisateurController {*/
             return updatedUtilisateur;
         }
 
-        @DeleteMapping("/notes/{id}")
+        @DeleteMapping("/utilisateurs/{id}")
         public ResponseEntity<?> deleteUtilisateur(@PathVariable(value = "id") Long utilisateurId) {
             Utilisateur utilisateur = utilisateurRepository.findById(utilisateurId)
-                    .orElseThrow(() -> new ResourceNotFoundException("utilisateur", "id", utilisateurId));
+                    .orElseThrow(() -> new ResourceNotFoundException("Utilisateur", "id", utilisateurId));
 
             utilisateurRepository.delete(utilisateur);
 
