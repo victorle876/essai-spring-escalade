@@ -4,13 +4,13 @@ import com.escalade.victor.exception.ResourceNotFoundException;
 import com.escalade.victor.model.Utilisateur;
 import com.escalade.victor.repository.UtilisateurRepository;
 import org.springframework.stereotype.Controller;
-/*import org.springframework.ui.Model;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;*/
+import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,16 +20,16 @@ import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
-/*@Controller
-public class UtilisateurController {*/
+@Controller
+public class UtilisateurController {
 
     /*    private List <Utilisateur> utilisateurs = new ArrayList<Utilisateur>() {{
             add(new Utilisateur(1, "Jack", "Smith", 32, "M", "jack.smith@yahoo.us"));
             add(new Utilisateur(2, "Jack", "Spvdc", 12, "M", "jack.smith2@yahoo.fr"));
             add(new Utilisateur(3, "Michel", "Spvdc", 29, "M", "michel.smith2@yahoo.fr"));
-        }};
+        }}; */
 
-       *//* private List <Utilisateur> utilisateurs = new ArrayList<Utilisateur>();*//*
+    private List <Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home (Model model) {
@@ -105,8 +105,8 @@ public class UtilisateurController {*/
 
             }
         }return null;
-        }*/
-    @RestController
+        }
+    /*@RestController
     @RequestMapping("/api")
     public class UtilisateurController {
 
@@ -157,7 +157,7 @@ public class UtilisateurController {*/
             utilisateurRepository.delete(utilisateur);
 
             return ResponseEntity.ok().build();
-        }
+        }*/
 
 
     }
