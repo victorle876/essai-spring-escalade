@@ -12,15 +12,13 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 import static java.util.Arrays.*;
 
 @Entity
 @Table(name = "utilisateurs")
-@EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"},
-        allowGetters = true)
 public class Utilisateur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +30,7 @@ public class Utilisateur implements Serializable {
     @NotBlank
     private String prenom;
 
-    @NotBlank
+    @NotNull
     private Integer age;
 
     @NotBlank
@@ -41,7 +39,7 @@ public class Utilisateur implements Serializable {
     @NotBlank
     private String mail;
 
-    @Column(nullable = false, updatable = false)
+/*    @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
     private Date createdAt;
@@ -49,7 +47,7 @@ public class Utilisateur implements Serializable {
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
-    private Date updatedAt;
+    private Date updatedAt;*/
 
     public Utilisateur() {
 
@@ -112,7 +110,7 @@ public class Utilisateur implements Serializable {
         this.mail = mail;
     }
 
-    public Date getCreatedAt() {
+    /*public Date getCreatedAt() {
         return createdAt;
     }
 
@@ -126,7 +124,7 @@ public class Utilisateur implements Serializable {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
-    }
+    }*/
 
 
     @Override
