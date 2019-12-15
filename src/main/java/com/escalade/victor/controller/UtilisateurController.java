@@ -49,13 +49,10 @@ public class UtilisateurController {
         return "home.html";
     }
 
-
-
     /*@RequestMapping(value = "/details", method = RequestMethod.GET)
     public String detail(@RequestParam(value = "id") Integer id, Model model) {*/
-        @GetMapping(value = "/details")
-        public String detail(@RequestParam(value = "id") Long utilisateurId, Model model) {
-       // model.addAttribute("id", id);
+        @RequestMapping(value = "/details", method = RequestMethod.GET)
+        public String detail(@RequestParam(value = "id") Long id, Model model) {
 
 /*        for (Utilisateur utilisateur : this.utilisateurs) {
             if (utilisateur.getId().equals(id)) {
@@ -66,17 +63,17 @@ public class UtilisateurController {
             }
         }
           return null;*/
-       System.out.println(utilisateurId);
-        model.addAttribute("utilisateur", this.utilisateurRepository.findById(utilisateurId));
+        System.out.println(id);
+        model.addAttribute("utilisateur", this.utilisateurRepository.findById(id));
         return "details.html";
 
     }
 
    @RequestMapping(value = "/edition", method = RequestMethod.GET)
-    public String edition(@RequestParam(value = "id") Integer id, Model model) {
-        // model.addAttribute("id", id);
+//    public String edition(@RequestParam(value = "id") Integer id, Model model) {
+      public String edition(@RequestParam(value = "id") Long id, Model model) {
 
-        System.out.println(id);
+/*        System.out.println(id);
         for (Utilisateur utilisateur : this.utilisateurs) {
             if (utilisateur.getId().equals(id)) {
                 // utilisateurs.set(id-1, utilisateur);
@@ -85,17 +82,17 @@ public class UtilisateurController {
 
             }
         }
-        return null;
+        return null;*/
 
-/*       model.addAttribute("utilisateur", this.utilisateurRepository.findById(id));
-       return "edition.html";*/
+       model.addAttribute("utilisateur", this.utilisateurRepository.findById(id));
+       return "edition.html";
 
     }
 
     @RequestMapping(value = "/edition2", method = RequestMethod.POST)
-    public String edition2 (@RequestParam(value = "id") Integer id, @Valid @ModelAttribute Utilisateur utilisateur, BindingResult errors, Model model) {
-
-        System.out.println(utilisateur);
+//    public String edition2 (@RequestParam(value = "id") Integer id, @Valid @ModelAttribute Utilisateur utilisateur, BindingResult errors, Model model) {
+      public String edition2 (@RequestParam(value = "id") int id, @Valid @ModelAttribute Utilisateur utilisateur, BindingResult errors, Model model) {
+/*        System.out.println(utilisateur);
         for (Utilisateur u : this.utilisateurs) {
             if (u.getId().equals(id)) {
                 this.utilisateurs.set(id-1, utilisateur);
@@ -104,8 +101,15 @@ public class UtilisateurController {
                 return "home.html";
 
             }
-        }return null;
+        }return null;*/
+
+
+         this.utilisateurs.set(id-1, utilisateur);
+         model.addAttribute("utilisateur", this.utilisateurRepository.save(utilisateur));
+       return "home.html";
         }
+
+
 
 
     }

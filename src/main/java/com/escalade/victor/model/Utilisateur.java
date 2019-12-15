@@ -22,7 +22,7 @@ import static java.util.Arrays.*;
 public class Utilisateur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @NotBlank
     private String nom;
@@ -53,7 +53,7 @@ public class Utilisateur implements Serializable {
 
     }
 
-    public Utilisateur(Integer id, String nom, String prenom, Integer age, String sexe, String mail) {
+    public Utilisateur(Long id, String nom, String prenom, Integer age, String sexe, String mail) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -62,11 +62,11 @@ public class Utilisateur implements Serializable {
         this.mail = mail;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
