@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class UtilisateurController {
@@ -64,7 +65,9 @@ public class UtilisateurController {
         }
           return null;*/
         System.out.println(id);
-        model.addAttribute("utilisateur", this.utilisateurRepository.findById(id));
+
+        Optional<Utilisateur> utilisateur3 = this.utilisateurRepository.findById(id);
+        model.addAttribute("utilisateur", utilisateur3);
         return "details.html";
 
     }

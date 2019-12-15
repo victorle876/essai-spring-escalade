@@ -21,7 +21,7 @@
     <form action="#" th:action="@{/edition2?id={id}(id=${utilisateur.id})}" th:object="${utilisateur}" method="post" >
         <div class="form-group">
             <label for="exampleInputId">Id</label>
-            <input type="text" disabled class="form-control" id="exampleInputId" th:field="*{id}">
+            <input type="number" disabled class="form-control" id="exampleInputId" th:field="*{id}">
         </div>
         <div class="form-group">
             <label for="exampleInputNom">Nom</label>
