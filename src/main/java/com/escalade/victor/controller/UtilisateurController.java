@@ -66,7 +66,7 @@ public class UtilisateurController {
           return null;*/
         System.out.println(id);
 
-        Optional<Utilisateur> utilisateur3 = this.utilisateurRepository.findById(id);
+        Utilisateur utilisateur3 = this.utilisateurRepository.findById(id);
         model.addAttribute("utilisateur", utilisateur3);
         return "details.html";
 
