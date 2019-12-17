@@ -66,7 +66,7 @@ public class UtilisateurController {
           return null;*/
         System.out.println(id);
 
-        Utilisateur utilisateur3 = this.utilisateurRepository.findById(id);
+        Utilisateur utilisateur3 = this.utilisateurRepository.findById(id).get();
         model.addAttribute("utilisateur", utilisateur3);
         return "details.html";
 
@@ -86,15 +86,15 @@ public class UtilisateurController {
             }
         }
         return null;*/
-
-       model.addAttribute("utilisateur", this.utilisateurRepository.findById(id));
+       Utilisateur utilisateur3 = this.utilisateurRepository.findById(id).get();
+       model.addAttribute("utilisateur", utilisateur3);
        return "edition.html";
 
     }
 
     @RequestMapping(value = "/edition2", method = RequestMethod.POST)
 //    public String edition2 (@RequestParam(value = "id") Integer id, @Valid @ModelAttribute Utilisateur utilisateur, BindingResult errors, Model model) {
-      public String edition2 (@RequestParam(value = "id") int id, @Valid @ModelAttribute Utilisateur utilisateur, BindingResult errors, Model model) {
+      public String edition2 (@RequestParam(value = "id") long id, @Valid @ModelAttribute Utilisateur utilisateur, BindingResult errors, Model model) {
 /*        System.out.println(utilisateur);
         for (Utilisateur u : this.utilisateurs) {
             if (u.getId().equals(id)) {
@@ -106,13 +106,12 @@ public class UtilisateurController {
             }
         }return null; 4*/
 
-
-         this.utilisateurs.set(id-1, utilisateur);
-         model.addAttribute("utilisateur", this.utilisateurRepository.save(utilisateur));
+         Utilisateur utilisateur3 = this.utilisateurRepository.findById(id).get();
+         utilisateur3.setId(id);
+         Utilisateur updateUtilisateur = this.utilisateurRepository.save(utilisateur);
+         model.addAttribute("utilisateur", updateUtilisateur);
        return "home.html";
         }
-
-
 
 
     }
