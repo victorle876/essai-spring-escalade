@@ -108,7 +108,7 @@ public class UtilisateurController {
 
          Utilisateur utilisateur3 = this.utilisateurRepository.findById(id).get();
          utilisateur3.setId(id);
-         Utilisateur updateUtilisateur = this.utilisateurRepository.save(utilisateur);
+         Utilisateur updateUtilisateur = this.utilisateurRepository.save(utilisateur3);
          model.addAttribute("utilisateur", updateUtilisateur);
        return "home.html";
         }
