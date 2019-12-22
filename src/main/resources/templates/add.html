@@ -56,30 +56,47 @@
             <label for="exampleInputNom">Nom</label>
             <input type="text" class="form-control" th:field="*{nom}" id="exampleInputNom" aria-describedby="WarningNom">
             <small id="WarningNom" class="form-text text-muted">Veuillez renseigner le nom.</small>
+            <ul>
+                <li th:if="${#fields.hasErrors('Nom')}" th:errors="*{nom}"/>
+            </ul>
         </div>
         <div class="form-group">
             <label for="exampleInputPrenom">Prenom</label>
             <input type="text" class="form-control" th:field="*{prenom}" id="exampleInputPrenom" aria-describedby="WarningPrenom" >
             <small id="WarningPrenom" class="form-text text-muted">Veuillez renseigner le prenom.</small>
+            <ul>
+                <li th:if="${#fields.hasErrors('Prenom')}" th:errors="*{prenom}"/>
+            </ul>
         </div>
 
         <div class="form-group">
             <label for="exampleInputAge">Age</label>
             <input type="number" class="form-control" th:field="*{age}" id="exampleInputAge" aria-describedby="WarningAge" >
             <small id="WarningAge" class="form-text text-muted">Veuillez renseigner l'age.</small>
+            <ul>
+                <li th:if="${#fields.hasErrors('Age')}" th:errors="*{age}"/>
+            </ul>
         </div>
         <div class="form-group">
             <label for="exampleInputSexe">Sexe</label>
             <input type="text" class="form-control" th:field="*{sexe}" id="exampleInputSexe" aria-describedby="WarningSexe" >
             <small id="WarningSexe" class="form-text text-muted">Veuillez renseigner le sexe.</small>
+            <ul>
+                <li th:if="${#fields.hasErrors('Sexe')}" th:errors="*{sexe}"/>
+            </ul>
         </div>
 
         <div class="form-group">
             <label for="exampleInputMail">Mail</label>
             <input type="email" class="form-control" th:field="*{mail}"  id="exampleInputMail" aria-describedby="WarningAge">
             <small id="WarningMail" class="form-text text-muted">Veuillez renseigner l'adresse mail.</small>
+            <ul>
+                <li th:if="${#fields.hasErrors('Mail')}" th:errors="*{mail}"/>
+            </ul>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <div>
+        <input class="btn btn-primary" type="submit" th:name="action" th:value="Submit">
+        </div>
     </form>
 </div>
 </body>

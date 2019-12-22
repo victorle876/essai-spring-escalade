@@ -37,10 +37,15 @@ public class UtilisateurController {
 
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(@Valid @ModelAttribute Utilisateur utilisateur, Model model) {
-        this.utilisateurRepository.save(utilisateur);
-        model.addAttribute("utilisateurs", this.utilisateurRepository.findAll());
-        return "redirect:home";
+    public String save(@Valid @ModelAttribute Utilisateur utilisateur, Model model, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "add";
+        } else {
+            this.utilisateurRepository.save(utilisateur);
+            model.addAttribute("utilisateurs", this.utilisateurRepository.findAll());
+            return "redirect:home";
+        }
     }
 
     @RequestMapping(value = "/details", method = RequestMethod.GET)
@@ -59,9 +64,13 @@ public class UtilisateurController {
 
     @RequestMapping(value = "/edition", method = RequestMethod.POST)
     public String edition2(@RequestParam(value = "id") long id, @Valid @ModelAttribute Utilisateur utilisateur, BindingResult errors, Model model) {
+        if (errors.hasErrors()) {
+            return "add";
+        } else {
         this.utilisateurRepository.save(utilisateur);
         model.addAttribute("utilisateurs", this.utilisateurRepository.findAll());
         return "redirect:/";
+        }
     }
 
 

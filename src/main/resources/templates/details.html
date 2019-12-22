@@ -55,30 +55,32 @@
         <div class="form-group">
             <label for="exampleInputNom">Nom</label>
             <input type="text" class="form-control" id="exampleInputNom" th:value="${utilisateur.nom}" aria-describedby="WarningNom" disabled>
-            <small id="WarningNom" class="form-text text-muted">Veuillez renseigner le nom.</small>
         </div>
         <div class="form-group">
             <label for="exampleInputPrenom">Prenom</label>
             <input type="text" class="form-control" id="exampleInputPrenom" th:value="${utilisateur.prenom}" aria-describedby="WarningPrenom" disabled>
-            <small id="WarningPrenom" class="form-text text-muted">Veuillez renseigner le prenom.</small>
         </div>
 
         <div class="form-group">
             <label for="exampleInputAge">Age</label>
             <input type="number" class="form-control" id="exampleInputAge" th:value="${utilisateur.age}" aria-describedby="WarningAge" disabled>
-            <small id="WarningAge" class="form-text text-muted">Veuillez renseigner l'age.</small>
         </div>
         <div class="form-group">
             <label for="exampleInputSexe">Sexe</label>
             <input type="text" class="form-control" id="exampleInputSexe" th:value="${utilisateur.sexe}" aria-describedby="WarningSexe" disabled>
-            <small id="WarningSexe" class="form-text text-muted">Veuillez renseigner le sexe.</small>
         </div>
 
         <div class="form-group">
             <label for="exampleInputMail">Mail</label>
             <input type="email" class="form-control" id="exampleInputMail" th:value="${utilisateur.mail}" aria-describedby="WarningAge" disabled>
-            <small id="WarningMail" class="form-text text-muted">Veuillez renseigner l'adresse mail.</small>
         </div>
+
+        <div>
+
+            <a th:href="@{/}" class="btn btn-info" role="button">Retour</a>
+
+        </div>
+
     </form>
 </div>
 </body>
