@@ -24,19 +24,19 @@ public class Utilisateur implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "Le nom est requis.")
+    @NotBlank(message = "Le nom est requis.")
     private String nom;
 
-    @NotNull(message = "Le prenom est requis.")
+    @NotBlank(message = "Le prenom est requis.")
     private String prenom;
 
     @NotNull(message = "L'âge est requis.")
     private Integer age;
 
-    @NotNull(message = "Le sexe est requis.")
+    @NotBlank(message = "Le sexe est requis.")
     private String sexe;
 
-    @NotNull(message = "L'adresse mail est requis.")
+    @NotBlank(message = "L'adresse mail est requis.")
     private String mail;
 
 /*    @Column(nullable = false, updatable = false)

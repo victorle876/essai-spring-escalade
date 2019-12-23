@@ -65,7 +65,7 @@ public class UtilisateurController {
     @RequestMapping(value = "/edition", method = RequestMethod.POST)
     public String edition2(@RequestParam(value = "id") long id, @Valid @ModelAttribute Utilisateur utilisateur, BindingResult errors, Model model) {
         if (errors.hasErrors()) {
-            return "add";
+            return "edition";
         } else {
         this.utilisateurRepository.save(utilisateur);
         model.addAttribute("utilisateurs", this.utilisateurRepository.findAll());
