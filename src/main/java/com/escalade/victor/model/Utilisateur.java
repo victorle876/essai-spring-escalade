@@ -16,16 +16,27 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 import static java.util.Arrays.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+
+/*@Entity
+@Table(name = "utilisateurs")
+public class Utilisateur implements Serializable {*/
 
 @Entity
 @Table(name = "utilisateurs")
-public class Utilisateur implements Serializable {
+public class Utilisateur implements Serializable , UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Le nom est requis.")
-    private String nom;
+/*    @NotBlank(message = "Le nom est requis.")
+    private String nom;*/
+
+    private String username;
 
     @NotBlank(message = "Le prenom est requis.")
     private String prenom;
@@ -38,6 +49,8 @@ public class Utilisateur implements Serializable {
 
     @NotBlank(message = "L'adresse mail est requis.")
     private String mail;
+
+    private String password ;
 
 /*    @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -53,14 +66,16 @@ public class Utilisateur implements Serializable {
 
     }
 
-    public Utilisateur(Long id, String nom, String prenom, Integer age, String sexe, String mail) {
+/*//    public Utilisateur(Long id, String nom, String prenom, Integer age, String sexe, String mail) {
+        public Utilisateur(Long id, String username, String prenom, Integer age, String sexe, String mail) {
         this.id = id;
-        this.nom = nom;
+//        this.nom = nom;
+        this.username = username;
         this.prenom = prenom;
         this.age = age;
         this.sexe = sexe;
         this.mail = mail;
-    }
+    }*/
 
     public Long getId() {
         return id;
@@ -70,12 +85,20 @@ public class Utilisateur implements Serializable {
         this.id = id;
     }
 
-    public String getNom() {
+/*    public String getNom() {
         return nom;
     }
 
     public void setNom(String nom) {
         this.nom = nom;
+    }*/
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUserName(String username) {
+        this.username = username;
     }
 
     public String getPrenom() {
@@ -126,12 +149,58 @@ public class Utilisateur implements Serializable {
         this.updatedAt = updatedAt;
     }*/
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
+
+
+/*    @Override
+    public String toString() {
+        return "Utilisateur{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", age=" + age +
+                ", sexe='" + sexe + '\'' +
+                ", mail='" + mail + '\'' +
+                '}';
+    }*/
 
     @Override
     public String toString() {
         return "Utilisateur{" +
                 "id=" + id +
-                ", nom='" + nom + '\'' +
+                ", nom='" + username + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", age=" + age +
                 ", sexe='" + sexe + '\'' +
