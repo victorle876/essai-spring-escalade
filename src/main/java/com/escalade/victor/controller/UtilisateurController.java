@@ -73,5 +73,11 @@ public class UtilisateurController {
         }
     }
 
+    @RequestMapping(value = "/connect", method = RequestMethod.GET)
+    public String connect(@RequestParam(value = "id") Long id, Model model) {
+        return "connect";
+
+    }
+
 
 }
