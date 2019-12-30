@@ -21,7 +21,7 @@
         <div class="form-group">
             <label for="exampleInputMot">Mot de passe</label>
             <input type="text" class="form-control" th:field="*{password}" id="exampleInputMot" aria-describedby="WarningNom">
-            <small id="WarningMotdePasse" class="form-text text-muted" th:if="${#fields.hasErrors('password')}" th:errors="*{passwprd}"></small>
+            <small id="WarningMotdePasse" class="form-text text-muted" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
         </div>
     </form>
 </div>
