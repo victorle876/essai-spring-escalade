@@ -18,34 +18,34 @@
 <!--<table border="1">-->
 <div class="container">
 
-<!--    <span th:text="${utilisateur.id}"> </span>
-    <span th:text="${utilisateur.nom}"> </span>
-    <span th:text="${utilisateur.prenom}"> </span>
-    <span th:text="${utilisateur.age}"> </span>
-    <span th:text="${utilisateur.sexe}"> </span>
-    <span th:text="${utilisateur.mail}"> </span>-->
+    <!--    <span th:text="${utilisateur.id}"> </span>
+        <span th:text="${utilisateur.nom}"> </span>
+        <span th:text="${utilisateur.prenom}"> </span>
+        <span th:text="${utilisateur.age}"> </span>
+        <span th:text="${utilisateur.sexe}"> </span>
+        <span th:text="${utilisateur.mail}"> </span>-->
 
-<!--    <table class="table">
-        <thead>
-        <th>id</th>
-        <th>nom</th>
-        <th>prenom</th>
-        <th>age</th>
-        <th>sexe</th>
-        <th>mail</th>
+    <!--    <table class="table">
+            <thead>
+            <th>id</th>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>age</th>
+            <th>sexe</th>
+            <th>mail</th>
 
-        </thead>
-        <tbody>
-        <tr>
-            <td th:text="${utilisateur.id}"/>
-            <td th:text="${utilisateur.nom}"/>
-            <td th:text="${utilisateur.prenom}"/>
-            <td th:text="${utilisateur.age}"/>
-            <td th:text="${utilisateur.sexe}"/>
-            <td th:text="${utilisateur.mail}"/>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${utilisateur.id}"/>
+                <td th:text="${utilisateur.nom}"/>
+                <td th:text="${utilisateur.prenom}"/>
+                <td th:text="${utilisateur.age}"/>
+                <td th:text="${utilisateur.sexe}"/>
+                <td th:text="${utilisateur.mail}"/>
 
-        </tr>
-    </table>-->
+            </tr>
+        </table>-->
 
     <form>
         <div class="form-group">
@@ -54,35 +54,40 @@
         </div>
         <div class="form-group">
             <label for="exampleInputNom">Nom</label>
-            <input type="text" class="form-control" id="exampleInputNom" th:value="${utilisateur.username}" aria-describedby="WarningNom" disabled>
+            <input type="text" class="form-control" id="exampleInputNom" th:value="${utilisateur.username}"
+                   aria-describedby="WarningNom" disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputPrenom">Prenom</label>
-            <input type="text" class="form-control" id="exampleInputPrenom" th:value="${utilisateur.prenom}" aria-describedby="WarningPrenom" disabled>
+            <input type="text" class="form-control" id="exampleInputPrenom" th:value="${utilisateur.prenom}"
+                   aria-describedby="WarningPrenom" disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputNom">mot de passe</label>
-            <input type="text" class="form-control" id="exampleInputMotP" th:value="${utilisateur.password}" aria-describedby="MotP" disabled>
+            <input type="text" class="form-control" id="exampleInputMotP" th:value="${utilisateur.password}"
+                   aria-describedby="MotP" disabled>
         </div>
 
         <div class="form-group">
             <label for="exampleInputAge">Age</label>
-            <input type="number" class="form-control" id="exampleInputAge" th:value="${utilisateur.age}" aria-describedby="WarningAge" disabled>
+            <input type="number" class="form-control" id="exampleInputAge" th:value="${utilisateur.age}"
+                   aria-describedby="WarningAge" disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputSexe">Sexe</label>
-            <input type="text" class="form-control" id="exampleInputSexe" th:value="${utilisateur.sexe}" aria-describedby="WarningSexe" disabled>
+            <input type="text" class="form-control" id="exampleInputSexe" th:value="${utilisateur.sexe}"
+                   aria-describedby="WarningSexe" disabled>
         </div>
 
         <div class="form-group">
             <label for="exampleInputMail">Mail</label>
-            <input type="email" class="form-control" id="exampleInputMail" th:value="${utilisateur.mail}" aria-describedby="WarningMail" disabled>
+            <input type="email" class="form-control" id="exampleInputMail" th:value="${utilisateur.mail}"
+                   aria-describedby="WarningMail" disabled>
         </div>
-
-<!--        <div class="form-group">
-            <label for="exampleInputRole">Role</label>
-            <input type="text" class="form-control" id="exampleInputRole" th:value="${utilisateur.role}" aria-describedby="WarningRole" disabled>
-        </div>-->
+        <!--        <div class="form-group">
+                    <label for="exampleInputRole">Role</label>
+                    <input type="text" class="form-control" id="exampleInputRole" th:value="${utilisateur.role}" aria-describedby="WarningRole" disabled>
+                </div>-->
 
         <div>
 

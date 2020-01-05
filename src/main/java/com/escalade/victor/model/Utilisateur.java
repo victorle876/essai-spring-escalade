@@ -1,14 +1,10 @@
 package com.escalade.victor.model;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -16,9 +12,6 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 import static java.util.Arrays.*;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
@@ -94,19 +87,12 @@ public class Utilisateur {
         this.id = id;
     }
 
-/*    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }*/
 
     public String getUsername() {
         return username;
     }
 
-    public void setUserName(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
@@ -142,23 +128,6 @@ public class Utilisateur {
         this.mail = mail;
     }
 
-    /*public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }*/
-
-
     public String getPassword() {
         return password;
     }
@@ -175,6 +144,22 @@ public class Utilisateur {
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
+
+    /*public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }*/
 
 
 /*    @Override

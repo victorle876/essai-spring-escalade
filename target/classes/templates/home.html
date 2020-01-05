@@ -33,10 +33,11 @@
                     <th>username</th>
                     <th>prenom</th>
                     <th>age</th>
+                    <th>password</th>
                     <th>sexe</th>
                     <th>mail</th>
                     <th>detail</th>
-<!--lkmnn-->
+                    <th>editer</th>
                     </thead>
                     <tbody>
                     <tr th:each="utilisateur, rowStat: ${utilisateurs}"
@@ -45,25 +46,20 @@
                         <td th:text="${utilisateur.username}"/>
                         <td th:text="${utilisateur.prenom}"/>
                         <td th:text="${utilisateur.age}"/>
+                        <td th:text="${utilisateur.password}"/>
                         <td th:text="${utilisateur.sexe}"/>
                         <td th:text="${utilisateur.mail}"/>
                         <td><a th:href="@{/details?id={id}(id=${utilisateur.id})}">Détails</a></td>
-
                         <td><a th:href="@{/edition?id={id}(id=${utilisateur.id})}">Editer</a></td>
                     </tr>
                     </tbody>
-                    <!--</table>-->
                 </table>
             </div>
-
         </div>
     </div>
 </div>
 <div class="align-self-xl-end">
-
     <br> <a th:href="@{/add}" class="btn btn-primary" role="button">Ajouter</a> </br>
-
 </div>
-
 </body>
 </html>
