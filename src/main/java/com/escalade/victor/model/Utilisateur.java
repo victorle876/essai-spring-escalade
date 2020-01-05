@@ -52,6 +52,13 @@ public class Utilisateur implements Serializable , UserDetails {
 
     private String password ;
 
+    @ManyToMany(cascade=CascadeType.MERGE)
+    @JoinTable(
+            name="user_role",
+            joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ID")},
+            inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
+    private List<Role> roles;
+
 /*    @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
@@ -161,6 +168,15 @@ public class Utilisateur implements Serializable , UserDetails {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Role> getRoles()
+    {
+        return roles;
+    }
+    public void setRoles(List<Role> roles)
+    {
+        this.roles = roles;
     }
 
     @Override

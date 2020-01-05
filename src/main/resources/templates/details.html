@@ -54,11 +54,15 @@
         </div>
         <div class="form-group">
             <label for="exampleInputNom">Nom</label>
-            <input type="text" class="form-control" id="exampleInputNom" th:value="${utilisateur.nom}" aria-describedby="WarningNom" disabled>
+            <input type="text" class="form-control" id="exampleInputNom" th:value="${utilisateur.username}" aria-describedby="WarningNom" disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputPrenom">Prenom</label>
             <input type="text" class="form-control" id="exampleInputPrenom" th:value="${utilisateur.prenom}" aria-describedby="WarningPrenom" disabled>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputNom">mot de passe</label>
+            <input type="text" class="form-control" id="exampleInputMotP" th:value="${utilisateur.password}" aria-describedby="MotP" disabled>
         </div>
 
         <div class="form-group">
@@ -72,7 +76,12 @@
 
         <div class="form-group">
             <label for="exampleInputMail">Mail</label>
-            <input type="email" class="form-control" id="exampleInputMail" th:value="${utilisateur.mail}" aria-describedby="WarningAge" disabled>
+            <input type="email" class="form-control" id="exampleInputMail" th:value="${utilisateur.mail}" aria-describedby="WarningMail" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputRole">Role</label>
+            <input type="email" class="form-control" id="exampleInputRole" th:value="${utilisateur.role}" aria-describedby="WarningRole" disabled>
         </div>
 
         <div>

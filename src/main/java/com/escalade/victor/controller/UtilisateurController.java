@@ -1,9 +1,11 @@
 package com.escalade.victor.controller;
 
 import com.escalade.victor.model.Utilisateur;
+import com.escalade.victor.config.*;
 
 import com.escalade.victor.repository.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,6 +23,9 @@ public class UtilisateurController {
 
     @Autowired
     UtilisateurRepository utilisateurRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Model model) {
@@ -42,6 +47,7 @@ public class UtilisateurController {
         if (result.hasErrors()) {
             return "add";
         } else {
+            utilisateur.setPassword(this.passwordEncoder.encode(utilisateur.getPassword()));
             this.utilisateurRepository.save(utilisateur);
             model.addAttribute("utilisateurs", this.utilisateurRepository.findAll());
             return "redirect:home";
@@ -74,8 +80,9 @@ public class UtilisateurController {
     }
 
     @RequestMapping(value = "/connect", method = RequestMethod.GET)
-    public String connect(@RequestParam(value = "id") Long id, Model model) {
-        return "connect";
+    public String connect(Model model)  {
+        model.addAttribute("utilisateur", new Utilisateur());
+        return "connexion";
 
     }
 

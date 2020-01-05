@@ -14,8 +14,10 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> 
 @Repository
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> {
 
-    @Query(" select nom, password from Utilisateur u " +
+    @Query(" select username, password from Utilisateur u " +
             " where u.username = ?1")
     Optional<Utilisateur> findUserWithName(String username);
+
+    Optional<Utilisateur> findByEmail(String email);
 
 }

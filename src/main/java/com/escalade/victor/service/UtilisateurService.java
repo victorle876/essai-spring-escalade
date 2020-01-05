@@ -27,7 +27,7 @@ public class UtilisateurService implements UserDetailsService {
         Utilisateur utilisateur = utilisateurRepository.findUserWithName(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        return (UserDetails) utilisateur;
+        return utilisateur;
     }
 
 }
