@@ -16,6 +16,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 import static java.util.Arrays.*;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -27,7 +28,7 @@ public class Utilisateur implements Serializable {*/
 
 @Entity
 @Table(name = "utilisateurs")
-public class Utilisateur implements Serializable , UserDetails {
+public class Utilisateur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,6 +37,7 @@ public class Utilisateur implements Serializable , UserDetails {
 /*    @NotBlank(message = "Le nom est requis.")
     private String nom;*/
 
+    @NotBlank(message = "Le nom est requis.")
     private String username;
 
     @NotBlank(message = "Le prenom est requis.")
@@ -50,13 +52,13 @@ public class Utilisateur implements Serializable , UserDetails {
     @NotBlank(message = "L'adresse mail est requis.")
     private String mail;
 
-    private String password ;
+    private String password;
 
-    @ManyToMany(cascade=CascadeType.MERGE)
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
-            name="user_role",
-            joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ID")},
-            inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
+            name = "user_role",
+            joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
+            inverseJoinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")})
     private List<Role> roles;
 
 /*    @Column(nullable = false, updatable = false)
@@ -156,10 +158,6 @@ public class Utilisateur implements Serializable , UserDetails {
         this.updatedAt = updatedAt;
     }*/
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
 
     public String getPassword() {
         return password;
@@ -170,33 +168,12 @@ public class Utilisateur implements Serializable , UserDetails {
         this.password = password;
     }
 
-    public List<Role> getRoles()
-    {
+    public List<Role> getRoles() {
         return roles;
     }
-    public void setRoles(List<Role> roles)
-    {
+
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return false;
     }
 
 

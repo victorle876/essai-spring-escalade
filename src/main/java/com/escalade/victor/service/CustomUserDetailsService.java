@@ -29,7 +29,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 getAuthorities(utilisateur));
     }
 
-    private static Collection<? extends GrantedAuthority> getAuthorities(Utilisateur utilisateur) {
+        private static Collection<? extends GrantedAuthority> getAuthorities(Utilisateur utilisateur) {
         String[] userRoles = utilisateur.getRoles().stream().map((role) -> role.getName()).toArray(String[]::new);
         Collection<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(userRoles);
         return authorities;
