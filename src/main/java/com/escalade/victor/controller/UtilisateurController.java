@@ -50,7 +50,7 @@ public class UtilisateurController {
             utilisateur.setPassword(this.passwordEncoder.encode(utilisateur.getPassword()));
             this.utilisateurRepository.save(utilisateur);
             model.addAttribute("utilisateurs", this.utilisateurRepository.findAll());
-            return "redirect:home";
+            return "home";
         }
     }
 

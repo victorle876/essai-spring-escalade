@@ -18,6 +18,6 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> 
             " where u.username = ?1")
     Optional<Utilisateur> findUserWithName(String username);
 
-    Optional<Utilisateur> findByEmail(String email);
+    Optional<Utilisateur> findByMail(String mail);
 
 }
