@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-    <title>Homepage</title>
+    <title>Userhome</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
@@ -11,21 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
-
 <body>
-
-<nav class="navbar navbar-expand-sm bg-light">
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" th:href="@{/}">Home</a>
-            <p sec:authorize="isAnonymous()"><a th:href="@{/connect}">Login</a></p>
-            <p><a th:href="@{/home}">User Home</a></p>
-            <p><a th:href="@{/admin/home}">Admin Home</a></p>
-            <p sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></p>
-        </li>
-    </ul>
-</nav>
-<!--<br>
 <div class="container-fluid">
     <div class="card text-center">
         <div class="card-body">
@@ -41,7 +27,7 @@
                     <th>sexe</th>
                     <th>mail</th>
                     <th>detail</th>
-                    <th>editer</th>
+<!--                    <th>editer</th>-->
                     </thead>
                     <tbody>
                     <tr th:each="utilisateur, rowStat: ${utilisateurs}"
@@ -54,7 +40,7 @@
                         <td th:text="${utilisateur.sexe}"/>
                         <td th:text="${utilisateur.mail}"/>
                         <td><a th:href="@{/details?id={id}(id=${utilisateur.id})}">Détails</a></td>
-                        <td><a th:href="@{/edition?id={id}(id=${utilisateur.id})}">Editer</a></td>
+<!--                        <td><a th:href="@{/edition?id={id}(id=${utilisateur.id})}">Editer</a></td>-->
                     </tr>
                     </tbody>
                 </table>
@@ -62,8 +48,5 @@
         </div>
     </div>
 </div>
-<div class="align-self-xl-end">
-    <br> <a th:href="@{/add}" class="btn btn-primary" role="button">Ajouter</a> </br>
-</div>-->
 </body>
 </html>
